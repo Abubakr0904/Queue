@@ -1,0 +1,33 @@
+@model QueuesViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table table-dark shadow mt-5 mb-3 border border-5 border-light rounded-3">
+    <thead>
+        <tr>
+            <th scope="col">Ism Sharif</th>
+            <th scope="col">Telefon Raqami</th>
+            <th scope="col">Navbat Olingan Vaqti</th>
+            <th scope="col">Navbat Keladigan Vaqt</th>
+            <th>Navbatdan Olish</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model.Queues)
+        {
+            <tr>
+                <td>@user.CustomerName</td>
+                <td>@user.Phone</td>
+                <td>@user.CreatedAt.ToString("MMM dd, yyyy HH:mm")</td>
+                <td>@user.QueueTime.ToString("MMM dd, yyyy HH:mm")</td>
+                <td>
+                    <form method="post" asp-action="RemoveQueue" asp-controller="Home" asp-route-id="@user.Id"></form>
+                        <button class="btn btn-danger">
+                            O'chirish
+                        </button>
+                    </td>
+            </tr>
+        }
+    </tbody>
+</table>

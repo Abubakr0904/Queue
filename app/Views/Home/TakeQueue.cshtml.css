@@ -1,0 +1,10 @@
+.take-queue{
+    min-width: 300px;
+    min-height: 500px;
+    max-width: 300px;
+    max-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
